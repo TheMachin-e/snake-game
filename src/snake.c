@@ -199,29 +199,6 @@ void normalize(Segment *snake, int *head, int *tail, const int len){
 	}
 }
 
-
-void draw_gameover(int score)
-{
-	const char *text[] = {
-		" GGG   AAA  MM MM  EEEEE       OOO  V   V EEEEE RRR  ",
-		"G     A   A M M M  E          O   O V   V E     R  R ",
-		"G GG  AAAAA M   M  EEEE       O   O V   V EEEE  RRR  ",
-		"G  G  A   A M   M  E          O   O  V V  E     R R  ",
-		" GGG  A   A M   M  EEEEE       OOO    V   EEEEE R  R"
-	};
-
-	for (int i = 0; i < 5; i++)
-		printf("\033[%d;%dH%s", 15 + i, 15, text[i]);
-
-	char score_text[50];
-
-	snprintf(score_text, sizeof(score_text), "SCORE : %d", score);
-
-	int col = 40 - strlen(score_text) / 2;
-
-	printf("\033[%d;%dH%s\n", 21, col, score_text);
-}
-
 int main(){
 	int i, j, len = 2, capacity = len * 2, head = 1, tail = 0, score = 0, high_score = 0;
 	srand(time(NULL));
@@ -306,7 +283,6 @@ int main(){
 		}
 		if( state == GAMEOVER){
 			printf("\033[1m\033[31m\033[22;83HGAME OVER!\033[0m\n");
-			draw_gameover(score);
 			sleep(3);
 			len = 2;
 			capacity = 4;
