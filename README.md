@@ -10,7 +10,7 @@ A simple Snake game written in C for Linux terminals.
 | `A` | Move left |
 | `S` | Move down |
 | `D` | Move right |
-| `P` | Pause / Resume |
+| `P` | Pause |
 | `Q` | Quit |
 
 > **Note:** Use `Q` to quit the game. `Ctrl+C` is currently not handled explicitly.
